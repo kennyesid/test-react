@@ -49,6 +49,11 @@ Este proyecto es una aplicación de React JS que incluye autenticación con JWT 
 
 2. Abre tu navegador y navega a [http://localhost:3000](http://localhost:3000).
 
+3. Credenciales para entrar al sistema
+	"email": "kennyesid@gmail.com"
+	"password": "123456"
+	
+
 ---
 
 ## **Rutas y Funcionalidades**
