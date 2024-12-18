@@ -8,9 +8,9 @@ function SignIn() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = (e) => {
+  const handleLogin = async (e) => {
     e.preventDefault();
-    UserService.login(email, password)
+    const respUserService = await UserService.login(email, password)
       .then((res) => {
         if (res.status) {
           localStorage.setItem("isAuthenticated", "true");
