@@ -19,14 +19,18 @@ function EditUser({ onSubmit, userToEdit, setUserToEdit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newUser = { id, name, email, password, type };
-    onSubmit(newUser);
-    setId("");
-    setName("");
-    setEmail("");
-    setPassword("");
-    setType("");
-    setUserToEdit(null);
+    if (password.length <= 4) {
+      alert("El password debe tener más de 4 caracteres ");
+    } else {
+      const newUser = { id, name, email, password, type };
+      onSubmit(newUser);
+      setId("");
+      setName("");
+      setEmail("");
+      setPassword("");
+      setType("");
+      setUserToEdit(null);
+    }
   };
 
   return (
@@ -88,6 +92,7 @@ function EditUser({ onSubmit, userToEdit, setUserToEdit }) {
         <input
           type="text"
           id="password"
+          name="name"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           className="w-full p-2 border border-gray-300 rounded-lg mt-1"

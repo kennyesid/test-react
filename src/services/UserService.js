@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const token = localStorage.getItem("token");
 class UserService {
   static async list() {
+    const token = localStorage.getItem("token");
     const users = await axios.get("http://localhost:4000/api/v1/user/all", {
       headers: { Authorization: `Bearer ${token}` },
     });

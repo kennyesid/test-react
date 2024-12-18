@@ -23,16 +23,19 @@ function Users() {
   const addUser = (user) => {
     UserService.create(user.name, user.email, user.type, user.password)
       .then((res) => {
-        if (res.status) {
-          localStorage.setItem("isAuthenticated", "true");
+        if (res.data.id) {
           window.location.reload();
         } else {
-          console.log(res);
+          if (!res.data.state) {
+            alert(res.data.message);
+          } else
+            alert(
+              "Error en la solicitud, favor de contactarse con el administrador"
+            );
         }
       })
       .catch((err) => {
         console.error("Error al obtener los usuarios:", err);
-        alert(err);
       });
   };
 
